@@ -2,7 +2,12 @@
 name = "algoroff"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["Greg Kapka <gregkapka@gmail.com>"]
 
 [dependencies]
+hex = "0.4.3"
+docopt = "1.1.1"
+serde = "1.0.136"
+quick-error = "2.0.1"
+serde_json = "1.0.78"
+rust-algorand = { path = "../rust-algorand" }
