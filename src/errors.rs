@@ -14,5 +14,17 @@ quick_error! {
             from()
             display("✘ Algorand error: {}", err)
         }
+        IOError(err: std::io::Error) {
+            from()
+            display("✘ I/O error: {}", err)
+        }
+        UTF8Error(err: std::str::Utf8Error) {
+            from()
+            display("✘ UTF8 error: {}", err)
+        }
+        HexError(err: hex::FromHexError) {
+            from()
+            display("✘ Hex error: {}", err)
+        }
     }
 }
