@@ -7,6 +7,7 @@ mod decrypt_private_key;
 mod errors;
 mod generate_key;
 mod get_cli_args;
+mod pay_tx;
 mod show_address;
 mod types;
 mod usage_info;
@@ -18,6 +19,7 @@ use crate::{
     errors::AppError,
     generate_key::generate_key,
     get_cli_args::{get_cli_args, CliArgs},
+    pay_tx::pay_tx,
     show_address::show_address,
     usage_info::USAGE_INFO,
 };
@@ -64,6 +66,17 @@ fn main() {
             &cli_args.flag_reserve,
             cli_args.arg_totalUnits,
             &cli_args.flag_unitName,
+        ),
+        CliArgs {
+            cmd_payTx: true, ..
+        } => pay_tx(
+            cli_args.arg_firstValid,
+            &cli_args.flag_genesisId,
+            cli_args.flag_fee,
+            &cli_args.flag_key,
+            &cli_args.arg_receiver,
+            &cli_args.flag_note,
+            cli_args.arg_amount,
         ),
         _ => Err(AppError::Custom(USAGE_INFO.to_string())),
     }) {

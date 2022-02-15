@@ -25,6 +25,7 @@ pub struct CliArgs {
     pub flag_genesisId: String,
     pub flag_assetName: String,
     pub flag_metadataHash: String,
+    pub cmd_payTx: bool,
     pub cmd_showAddress: bool,
     pub cmd_generateKey: bool,
     pub cmd_assetConfigTx: bool,

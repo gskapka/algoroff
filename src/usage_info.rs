@@ -14,12 +14,14 @@ Usage:  algoroff [--help]
         algoroff [--version]
         algoroff generateKey
         algoroff showAddress [--key=<path>]
+        algoroff payTx <amount> <receiver> <firstValid> [--key=<path>] [--fee<ualgos>] [--note=<hex>] [--genesisId=<str>]
         algoroff assetTransferTx <amount> <id> <receiver> <firstValid> [--genesisId=<str>] [--fee=<ualgos>] [--key=<path>] [--note=<hex>]
         algoroff assetConfigTx <totalUnits> <firstValid> [--genesisId=<str>] [--fee=<ualgos>] [--key=<path>] [--metadataHash=<str>] [--assetName=<str>] [--assetUrl=<str>] [--clawback=<str>] [--decimals=<u64>] [--frozen=<bool>] [--freezer=<str>] [--manager=<str>] [--reserve=<str>] [--unitName=<str>]
 
 Commands:
 
-    assetTransferTx             ❍ Create anx asset transfer transaction.
+    payTx                       ❍ Create a pay transaction.
+    assetTransferTx             ❍ Create an asset transfer transaction.
     generateKey                 ❍ Generate a random Algorand private key.
     showAddress                 ❍ Show the address of the GPG-encrypted private key.
     <id>                        ❍ ID number of the asset in question.
