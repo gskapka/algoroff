@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate quick_error;
 
+mod asset_transfer_tx;
 mod decrypt_private_key;
 mod errors;
 mod generate_key;
@@ -10,6 +11,7 @@ mod types;
 mod usage_info;
 
 use crate::{
+    asset_transfer_tx::asset_transfer_tx,
     errors::AppError,
     generate_key::generate_key,
     get_cli_args::{get_cli_args, CliArgs},
@@ -27,6 +29,18 @@ fn main() {
             cmd_showAddress: true,
             ..
         } => show_address(&cli_args.flag_key),
+        CliArgs {
+            cmd_assetTransferTx: true,
+            ..
+        } => asset_transfer_tx(
+            cli_args.arg_amount,
+            cli_args.arg_id,
+            &cli_args.arg_receiver,
+            cli_args.arg_firstValid,
+            &cli_args.arg_genesisHash,
+            cli_args.flag_fee,
+            &cli_args.flag_key,
+        ),
         _ => Err(AppError::Custom(USAGE_INFO.to_string())),
     }) {
         Ok(res) => println!("{res}"),
