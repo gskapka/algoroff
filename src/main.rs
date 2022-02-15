@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate quick_error;
 
+mod asset_config_tx;
 mod asset_transfer_tx;
 mod decrypt_private_key;
 mod errors;
@@ -12,6 +13,7 @@ mod usage_info;
 mod utils;
 
 use crate::{
+    asset_config_tx::asset_config_tx,
     asset_transfer_tx::asset_transfer_tx,
     errors::AppError,
     generate_key::generate_key,
@@ -42,6 +44,26 @@ fn main() {
             cli_args.flag_fee,
             &cli_args.flag_key,
             &cli_args.flag_note,
+        ),
+        CliArgs {
+            cmd_assetConfigTx: true,
+            ..
+        } => asset_config_tx(
+            cli_args.arg_firstValid,
+            &cli_args.flag_genesisId,
+            cli_args.flag_fee,
+            &cli_args.flag_key,
+            &cli_args.flag_metadataHash,
+            &cli_args.flag_assetName,
+            &cli_args.flag_assetUrl,
+            &cli_args.flag_clawback,
+            cli_args.flag_decimals,
+            cli_args.flag_frozen,
+            &cli_args.flag_freezer,
+            &cli_args.flag_manager,
+            &cli_args.flag_reserve,
+            cli_args.arg_totalUnits,
+            &cli_args.flag_unitName,
         ),
         _ => Err(AppError::Custom(USAGE_INFO.to_string())),
     }) {

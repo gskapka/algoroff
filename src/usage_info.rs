@@ -14,7 +14,8 @@ Usage:  algoroff [--help]
         algoroff [--version]
         algoroff generateKey
         algoroff showAddress [--key=<path>]
-        algoroff assetTransferTx <amount> <id> <receiver> <firstValid> [--genesisId=<String>] [--fee=<ualgos>] [--key=<path>] [--note=<hex>]
+        algoroff assetTransferTx <amount> <id> <receiver> <firstValid> [--genesisId=<str>] [--fee=<ualgos>] [--key=<path>] [--note=<hex>]
+        algoroff assetConfigTx <totalUnits> <firstValid> [--genesisId=<str>] [--fee=<ualgos>] [--key=<path>] [--metadataHash=<str>] [--assetName=<str>] [--assetUrl=<str>] [--clawback=<str>] [--decimals=<u64>] [--frozen=<bool>] [--freezer=<str>] [--manager=<str>] [--reserve=<str>] [--unitName=<str>]
 
 Commands:
 
@@ -25,13 +26,24 @@ Commands:
     <amount>                    ❍ Amount to transer.
     <receiver>                  ❍ The receiver of the transaction.
     <firstValid>                ❍ The first round after which the tx will be valid.
+    <totalUnits>                ❍ The number of units of an asset to create.
 
 Options:
 
     --help                      ❍ Show this message.
     --version                   ❍ Returns the version of the tool.
     --fee=<ualgos>              ❍ Fee in micro algos [default: 1000]
+    --assetName=<str>           ❍ The name of the asset [default: ]
+    --assetUrl=<str>            ❍ URL of the asset's website [default: ]
+    --decimals=<u64>            ❍ Number of decimals of the asset [default: 0]
+    --metadataHash=<str>        ❍ Hash of data relevant to the asset [default: ]
+    --unitName=<str>            ❍ Name of the Algorand asset being create [default: ]
     --key=<path>                ❍ Path to GPG encrypted key file [default: ./key.gpg]
+    --freezer=<str>             ❍ Algorand account who can freeze the asset [default: ]
     --note=<hex>                ❍ An optional note to add to Algo transaction [default: 0x]
-    --genesisId=<String>        ❍ The genesis ID of the chain you want to transact on [default: mainnet-v1.0]
+    --frozen=<bool>             ❍ Whether or not the asset is frozen upon creation [default: false]
+    --clawback=<str>            ❍ Algorand address that can move asset from any to any address [default: ]
+    --manager=<str>             ❍ Algorand account who can configure/destroy asset after creation [default: ]
+    --genesisId=<str>           ❍ The genesis ID of the chain you want to transact on [default: mainnet-v1.0]
+    --reserve=<str>             ❍ Algorand account who holds the reserve/non-minted units of the asset [default: ]
 ";
