@@ -38,7 +38,7 @@ fn main() {
             cli_args.arg_id,
             &cli_args.arg_receiver,
             cli_args.arg_firstValid,
-            &cli_args.arg_genesisHash,
+            &cli_args.flag_genesisId,
             cli_args.flag_fee,
             &cli_args.flag_key,
             &cli_args.flag_note,

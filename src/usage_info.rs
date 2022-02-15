@@ -14,7 +14,7 @@ Usage:  algoroff [--help]
         algoroff [--version]
         algoroff generateKey
         algoroff showAddress [--key=<path>]
-        algoroff assetTransferTx <amount> <id> <receiver> <firstValid> <genesisHash> [--fee=<ualgos>] [--key=<path>] [--note=<hex>]
+        algoroff assetTransferTx <amount> <id> <receiver> <firstValid> [--genesisId=<String>] [--fee=<ualgos>] [--key=<path>] [--note=<hex>]
 
 Commands:
 
@@ -25,7 +25,6 @@ Commands:
     <amount>                    ❍ Amount to transer.
     <receiver>                  ❍ The receiver of the transaction.
     <firstValid>                ❍ The first round after which the tx will be valid.
-    <genesisHash>               ❍ The genesis hash of the network you wish to transact on.
 
 Options:
 
@@ -34,4 +33,5 @@ Options:
     --fee=<ualgos>              ❍ Fee in micro algos [default: 1000]
     --key=<path>                ❍ Path to GPG encrypted key file [default: ./key.gpg]
     --note=<hex>                ❍ An optional note to add to Algo transaction [default: 0x]
+    --genesisId=<String>        ❍ The genesis ID of the chain you want to transact on [default: mainnet-v1.0]
 ";
