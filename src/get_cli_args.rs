@@ -8,6 +8,7 @@ use crate::{types::Result, usage_info::USAGE_INFO};
 pub struct CliArgs {
     pub arg_id: u64,
     pub arg_amount: u64,
+    pub arg_assetId: u64,
     pub arg_firstValid: u64,
     pub arg_totalUnits: u64,
     pub arg_receiver: String,
@@ -26,6 +27,7 @@ pub struct CliArgs {
     pub flag_assetName: String,
     pub flag_metadataHash: String,
     pub cmd_payTx: bool,
+    pub cmd_assetOptInTx: bool,
     pub cmd_showAddress: bool,
     pub cmd_generateKey: bool,
     pub cmd_assetConfigTx: bool,

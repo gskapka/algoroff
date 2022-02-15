@@ -4,6 +4,7 @@ extern crate quick_error;
 mod asset_config_tx;
 mod asset_transfer_tx;
 mod decrypt_private_key;
+mod asset_opt_in_tx;
 mod errors;
 mod generate_key;
 mod get_cli_args;
@@ -17,6 +18,7 @@ use crate::{
     asset_config_tx::asset_config_tx,
     asset_transfer_tx::asset_transfer_tx,
     errors::AppError,
+    asset_opt_in_tx::asset_opt_in_tx,
     generate_key::generate_key,
     get_cli_args::{get_cli_args, CliArgs},
     pay_tx::pay_tx,
@@ -34,6 +36,16 @@ fn main() {
             cmd_showAddress: true,
             ..
         } => show_address(&cli_args.flag_key),
+        CliArgs {
+            cmd_assetOptInTx: true,
+            ..
+        } => asset_opt_in_tx(
+            cli_args.arg_assetId,
+            cli_args.flag_fee,
+            cli_args.arg_firstValid,
+            &cli_args.flag_genesisId,
+            &cli_args.flag_key,
+        ),
         CliArgs {
             cmd_assetTransferTx: true,
             ..
