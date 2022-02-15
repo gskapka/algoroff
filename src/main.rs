@@ -9,6 +9,7 @@ mod get_cli_args;
 mod show_address;
 mod types;
 mod usage_info;
+mod utils;
 
 use crate::{
     asset_transfer_tx::asset_transfer_tx,
@@ -40,6 +41,7 @@ fn main() {
             &cli_args.arg_genesisHash,
             cli_args.flag_fee,
             &cli_args.flag_key,
+            &cli_args.flag_note,
         ),
         _ => Err(AppError::Custom(USAGE_INFO.to_string())),
     }) {

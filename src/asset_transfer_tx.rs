@@ -1,4 +1,4 @@
-use crate::{decrypt_private_key::decrypt_private_key, types::Result};
+use crate::{decrypt_private_key::decrypt_private_key, types::Result, utils::strip_hex_prefix};
 use rust_algorand::{AlgorandAddress, AlgorandHash, AlgorandTransaction, MicroAlgos};
 use std::str::FromStr;
 
@@ -10,13 +10,15 @@ pub fn asset_transfer_tx(
     genesis_hash: &str,
     fee: u64,
     path_to_pk: &str,
+    note: &str,
 ) -> Result<String> {
     let pk = decrypt_private_key(path_to_pk)?;
+    let bytes = hex::decode(strip_hex_prefix(note))?;
     Ok(AlgorandTransaction::asset_transfer(
         id,
         MicroAlgos::new(fee),
         amount,
-        None,
+        if bytes.is_empty() { None } else { Some(bytes) },
         first_valid,
         pk.to_address()?,
         AlgorandHash::from_str(genesis_hash)?,

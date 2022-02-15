@@ -14,7 +14,7 @@ Usage:  algoroff [--help]
         algoroff [--version]
         algoroff generateKey
         algoroff showAddress [--key=<path>]
-        algoroff assetTransferTx <amount> <id> <receiver> <firstValid> <genesisHash> [--fee=<ualgos>] [--key=<path>]
+        algoroff assetTransferTx <amount> <id> <receiver> <firstValid> <genesisHash> [--fee=<ualgos>] [--key=<path>] [--note=<hex>]
 
 Commands:
 
@@ -32,6 +32,6 @@ Options:
     --help                      ❍ Show this message.
     --version                   ❍ Returns the version of the tool.
     --fee=<ualgos>              ❍ Fee in micro algos [default: 1000]
-    --key=<path>                ❍ Path to GPG encrypted key file [default: /key.gpg]
-
+    --key=<path>                ❍ Path to GPG encrypted key file [default: ./key.gpg]
+    --note=<hex>                ❍ An optional note to add to Algo transaction [default: 0x]
 ";

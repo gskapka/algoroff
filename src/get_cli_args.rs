@@ -13,6 +13,7 @@ pub struct CliArgs {
     pub arg_genesisHash: String,
     pub flag_fee: u64,
     pub flag_key: String,
+    pub flag_note: String,
     pub cmd_showAddress: bool,
     pub cmd_generateKey: bool,
     pub cmd_assetTransferTx: bool,
