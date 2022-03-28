@@ -16,7 +16,7 @@ pub struct CliArgs {
     pub flag_key: String,
     pub flag_note: String,
     pub flag_decimals: u64,
-    pub flag_frozen: bool,
+    pub flag_frozen: String,
     pub flag_manager: String,
     pub flag_reserve: String,
     pub flag_freezer: String,

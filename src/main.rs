@@ -2,9 +2,9 @@
 extern crate quick_error;
 
 mod asset_config_tx;
+mod asset_opt_in_tx;
 mod asset_transfer_tx;
 mod decrypt_private_key;
-mod asset_opt_in_tx;
 mod errors;
 mod generate_key;
 mod get_cli_args;
@@ -16,9 +16,9 @@ mod utils;
 
 use crate::{
     asset_config_tx::asset_config_tx,
+    asset_opt_in_tx::asset_opt_in_tx,
     asset_transfer_tx::asset_transfer_tx,
     errors::AppError,
-    asset_opt_in_tx::asset_opt_in_tx,
     generate_key::generate_key,
     get_cli_args::{get_cli_args, CliArgs},
     pay_tx::pay_tx,
@@ -72,7 +72,11 @@ fn main() {
             &cli_args.flag_assetUrl,
             &cli_args.flag_clawback,
             cli_args.flag_decimals,
-            cli_args.flag_frozen,
+            if cli_args.flag_frozen == "true" {
+                true
+            } else {
+                false
+            },
             &cli_args.flag_freezer,
             &cli_args.flag_manager,
             &cli_args.flag_reserve,
